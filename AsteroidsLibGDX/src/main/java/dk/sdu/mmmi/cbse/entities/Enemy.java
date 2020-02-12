@@ -5,10 +5,13 @@ import com.badlogic.gdx.math.MathUtils;
 import dk.sdu.mmmi.cbse.main.Game;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Enemy extends SpaceObject {
     private ArrayList<Bullet> bullets;
     private final int maxBullets = 4;
+    private int movementTimer;
+    private Random rd = new Random();
 
     private boolean left;
     private boolean right;
@@ -107,6 +110,17 @@ public class Enemy extends SpaceObject {
         // screen wrap
         wrap();
 
+    }
+
+    public void move() {
+        if (movementTimer == 0) {
+            setRight(rd.nextBoolean());
+            setLeft(rd.nextBoolean());
+            setUp(false);
+            movementTimer = 50;
+        }
+        movementTimer --;
+        setUp(rd.nextBoolean());
     }
 
     public void draw(ShapeRenderer sr) {

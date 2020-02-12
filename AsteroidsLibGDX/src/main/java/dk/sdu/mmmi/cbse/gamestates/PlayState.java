@@ -99,18 +99,7 @@ public class PlayState extends GameState {
 		}
 
 		// Enemy movement.
-		if (enemyMovementTimer == 0) {
-			enemy.setRight(rd.nextBoolean());
-			enemy.setUp(false);
-			enemyMovementTimer = 50;
-		}
-
-		if (enemyMovementTimer == 25) {
-			enemy.setLeft(rd.nextBoolean());
-			enemy.setUp(false);
-		}
-		enemyMovementTimer --;
-		enemy.setUp(rd.nextBoolean());
+		enemy.move();
 
 		// Enemy shoot.
 		if (enemyShootTimer == 0) {
