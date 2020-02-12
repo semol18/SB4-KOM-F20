@@ -10,6 +10,7 @@ public class Player extends SpaceObject {
 	private boolean left;
 	private boolean right;
 	private boolean up;
+	private boolean down;
 	
 	private float maxSpeed;
 	private float acceleration;
@@ -46,9 +47,21 @@ public class Player extends SpaceObject {
 		shapey[3] = y + MathUtils.sin(radians + 4 * 3.1415f / 5) * 8;
 	}
 	
-	public void setLeft(boolean b) { left = b; }
-	public void setRight(boolean b) { right = b; }
-	public void setUp(boolean b) { up = b; }
+	public void setLeft(boolean b) {
+		left = b;
+	}
+
+	public void setRight(boolean b) {
+		right = b;
+	}
+
+	public void setUp(boolean b) {
+		up = b;
+	}
+
+	public void setDown(boolean b) {
+		down = b;
+	}
 	
 	public void update(float dt) {
 		
@@ -64,6 +77,11 @@ public class Player extends SpaceObject {
 		if(up) {
 			dx += MathUtils.cos(radians) * acceleration * dt;
 			dy += MathUtils.sin(radians) * acceleration * dt;
+		}
+
+		if (down) {
+			dx -= MathUtils.cos(radians) * acceleration * dt;
+			dy -= MathUtils.sin(radians) * acceleration * dt;
 		}
 		
 		// deceleration
