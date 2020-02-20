@@ -24,7 +24,7 @@ public class MovingPart
     private float dx, dy;
     private float deceleration, acceleration;
     private float maxSpeed, rotationSpeed;
-    private boolean left, right, up;
+    private boolean left, right, up, down;
 
     public MovingPart(float deceleration, float acceleration, float maxSpeed, float rotationSpeed) {
         this.deceleration = deceleration;
@@ -61,6 +61,10 @@ public class MovingPart
         this.up = up;
     }
 
+    public void setDown(boolean down) {
+        this.down = down;
+    }
+
     @Override
     public void process(GameData gameData, Entity entity) {
         PositionPart positionPart = entity.getPart(PositionPart.class);
@@ -84,6 +88,11 @@ public class MovingPart
             dy += sin(radians) * acceleration * dt;
         }
 
+        if (down) {
+            dx -= cos(radians) * acceleration * dt;
+            dy -= sin(radians) * acceleration * dt;
+        }
+
         // deccelerating
         float vec = (float) sqrt(dx * dx + dy * dy);
         if (vec > 0) {
@@ -99,16 +108,14 @@ public class MovingPart
         x += dx * dt;
         if (x > gameData.getDisplayWidth()) {
             x = 0;
-        }
-        else if (x < 0) {
+        } else if (x < 0) {
             x = gameData.getDisplayWidth();
         }
 
         y += dy * dt;
         if (y > gameData.getDisplayHeight()) {
             y = 0;
-        }
-        else if (y < 0) {
+        } else if (y < 0) {
             y = gameData.getDisplayHeight();
         }
 

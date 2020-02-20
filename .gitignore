@@ -22,3 +22,8 @@ AsteroidsLibGDX/.idea/misc.xml
 AsteroidsLibGDX/.idea/modules.xml
 AsteroidsLibGDX/.idea/vcs.xml
 AsteroidsLibGDX/AsteroidsLibGDX.iml
+/AsteroidsEntityFramework/Common/target/
+/AsteroidsEntityFramework/Core/target/
+/AsteroidsEntityFramework/Player/target/
+/AsteroidsEntityFramework/Enemy/target/
+/AsteroidsEntityFramework/Asteroid/target/
