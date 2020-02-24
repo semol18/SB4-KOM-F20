@@ -36,13 +36,14 @@ public class EnemyPlugin implements IGamePluginService {
         float acceleration = 100;
         float maxSpeed = 200;
         float rotationSpeed = 5;
-        float x = gameData.getDisplayWidth() / 2;
-        float y = gameData.getDisplayHeight() / 2;
+        float x = gameData.getDisplayWidth() / 3;
+        float y = gameData.getDisplayHeight() / 3;
         float radians = 3.1415f / 2;
         
         Entity enemyShip = new Enemy();
         enemyShip.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
         enemyShip.add(new PositionPart(x, y, radians));
+        enemyShip.setRadius(3);
         
         return enemyShip;
     }
