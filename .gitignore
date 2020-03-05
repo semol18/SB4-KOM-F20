@@ -31,3 +31,8 @@ AsteroidsLibGDX/AsteroidsLibGDX.iml
 /AsteroidsModulized/branding/target/
 /AsteroidsModulized/Common/target/
 /AsteroidsModulized/application/target/
+/AsteroidsModulized/Core/target/
+/AsteroidsModulized/Player/target/
+/AsteroidsModulized/Enemy/target/
+/AsteroidsModulized/Collision/target/
+/AsteroidsModulized/Asteroid/target/
