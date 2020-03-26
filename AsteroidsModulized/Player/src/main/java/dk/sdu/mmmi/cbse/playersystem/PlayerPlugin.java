@@ -6,11 +6,15 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
+import org.openide.util.lookup.ServiceProvider;
+import org.openide.util.lookup.ServiceProviders;
 
 /**
  *
  * @author sebastian
  */
+
+@ServiceProvider(service = IGamePluginService.class)
 public class PlayerPlugin implements IGamePluginService {
 
     private Entity player;
